@@ -1,9 +1,6 @@
 package com.diary.app.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -13,6 +10,7 @@ import java.util.List;
 public class User implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
@@ -77,6 +75,7 @@ public class User implements Serializable {
     public List<Note> findAll() {
         return null;
     }
+
 
 //    public Date getCreated() {
 //        return Created;

@@ -42,4 +42,16 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @GetMapping("/user/{id}")
+    public User findAll(@PathVariable("id") long id){
+        return userRepository.findById(id).get();
+    }
+
+    @GetMapping("/saveUser")
+    public User saveUser(){
+        User user=new User();
+        user.setFirstName("Laman");
+        user.setPassword("laman");
+        return userRepository.save(user);
+    }
 }

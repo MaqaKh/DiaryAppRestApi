@@ -37,6 +37,7 @@ public class NoteController {
 
     @PostMapping
     public void save(@RequestBody Note note) {
+        System.out.println("asdasdasdasd");
         noteRepository.save(note);
     }
 
@@ -47,10 +48,20 @@ public class NoteController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
+        System.out.println("delete");
         noteRepository.deleteById(id);
     }
 
     public void findAll() {
     }
 
+    @GetMapping("/saveNote")
+    public Note saveNote(){
+        User user=userRepository.findAll().get(0);
+        Note note=new Note();
+        note.setDescription("asdasdasdadsd");
+        note.setUser(user);
+        noteRepository.save(note);
+        return note;
+    }
 }
